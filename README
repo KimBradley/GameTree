@@ -1,0 +1,156 @@
+Kim Bradley
+8103137260
+
+To Compile:
+	make compile
+To Run:
+	make run
+To Clean:
+	make clean
+
+Comments:
+	>> I have a printTree() method that prints the game tree in a visual way. I wanted to showcase this method in my code for you to see.
+	   It is a little long (because it consists of 6380 nodes) so I print it out first.
+	   If you wish to get rid of this so you can better see my other output, you can just comment out line 239 in t3solver.cpp.
+	>> The traversal methods for Pre and Post Order are only printing from their respected vector lists.
+	   This is because the implimentation of the pseudocode we've learned for PreOrder and PostOrder are in the CreateGameTree method.
+	   I add to PreOrder vector BEFORE recursive call and I add to PostOrder vector AFTER recursive call.
+	>> The number of nodes, with the root "X** *** *O*" is 6380.
+	>> All Order Traversals also have 6380 nodes.
+	>> The printTree() layout prints with the root being on the left and ending with the leaves on the right of the screen.
+	>> I have error checking for methods that require the tree to be created first, etc. You can see this error checking in lines 3-5 of my output.
+	>> My attempt at the bonus prints out at the bottom.
+	   I tried to use the LinkInversionTraversal for a binary tree algorithm, and adapt it to use a vector iterator for a vector of a node's children.
+
+Sample Output:
+------------------------------------------
+Root Board: X** *** *O*
+Cannot print GameTree. GameTree not created yet.
+Cannot print PreOrder. GameTree not created yet.
+Cannot print PostOrder. GameTree not created yet.
+Cannot create LevelOrder. GameTree not created yet.
+
+--------------The Game Tree---------------
+------------------------------------------
+[X** *** *O*]
+      |---->[XX* *** *O*]
+      |           |---->[XXO *** *O*]
+      |           |           |---->[XXO X** *O*]
+      |           |           |           |---->[XXO XO* *O*]
+      |           |           |           |           |---->[XXO XOX *O*]
+      |           |           |           |           |           |---->[XXO XOX OO*]
+      |           |           |           |           |           |---->[XXO XOX *OO]
+      |           |           |           |           |           |           |---->[XXO XOX XOO]
+      |           |           |           |           |---->[XXO XO* XO*]
+      |           |           |           |           |---->[XXO XO* *OX]
+      |           |           |           |           |           |---->[XXO XOO *OX]
+      |           |           |           |           |           |           |---->[XXO XOO XOX]
+      |           |           |           |           |           |---->[XXO XO* OOX]
+      |           |           |           |---->[XXO X*O *O*]
+      |           |           |           |           |---->[XXO XXO *O*]
+      |           |           |           |           |           |---->[XXO XXO OO*]
+      |           |           |           |           |           |           |---->[XXO XXO OOX]
+      |           |           |           |           |           |---->[XXO XXO *OO]
+      |           |           |           |           |---->[XXO X*O XO*]
+      |           |           |           |           |---->[XXO X*O *OX]
+      |           |           |           |           |           |---->[XXO XOO *OX]
+      |           |           |           |           |           |           |---->[XXO XOO XOX]
+      |           |           |           |           |           |---->[XXO X*O OOX]
+      |           |           |           |           |           |           |---->[XXO XXO OOX]
+<<<<THE REST IS OMITTED FOR LENGTH. FOR FULL LIST, RUN CODE>>>>
+------------------------------------------
+
+-----------PreOrder Traversal-------------
+------------------------------------------
+Order Number	Board Layout	Node Level
+1:		X** *** *O*	0
+2:		XX* *** *O*	1
+3:		XXO *** *O*	2
+4:		XXO X** *O*	3
+5:		XXO XO* *O*	4
+6:		XXO XOX *O*	5
+7:		XXO XOX OO*	6
+8:		XXO XOX *OO	6
+9:		XXO XOX XOO	7
+10:		XXO XO* XO*	5
+<<<<THE REST IS OMITTED FOR LENGTH. FOR FULL LIST, RUN CODE>>>>
+------------------------------------------
+
+-----------PostOrder Traversal------------
+------------------------------------------
+Order Number	Board Layout	Node Level
+1:		XXO XOX OO*	6
+2:		XXO XOX XOO	7
+3:		XXO XOX *OO	6
+4:		XXO XOX *O*	5
+5:		XXO XO* XO*	5
+6:		XXO XOO XOX	7
+7:		XXO XOO *OX	6
+8:		XXO XO* OOX	6
+9:		XXO XO* *OX	5
+10:		XXO XO* *O*	4
+<<<<THE REST IS OMITTED FOR LENGTH. FOR FULL LIST, RUN CODE>>>>
+------------------------------------------
+
+-----------LevelOrder Traversal-----------
+------------------------------------------
+Order Number	Board Layout	Node Level
+1:		X** *** *O*	0
+2:		XX* *** *O*	1
+3:		X*X *** *O*	1
+4:		X** X** *O*	1
+5:		X** *X* *O*	1
+6:		X** **X *O*	1
+7:		X** *** XO*	1
+8:		X** *** *OX	1
+9:		XXO *** *O*	2
+10:		XX* O** *O*	2
+<<<<THE REST IS OMITTED FOR LENGTH. FOR FULL LIST, RUN CODE>>>>
+------------------------------------------
+
+------------------------------------------
+Number of nodes in GameTree: 6380
+------------------------------------------
+Player Moves for board: X** *** XO*
+	Player O Move: XO* *** XO*
+	Player X Move: XOX *** XO*
+	Player O Move: XOX O** XO*
+	Player X Move: XOX OX* XO*
+	Player X won!
+------------------------------------------
+Player Moves for board: X** *** *O*
+	Player X Move: XX* *** *O*
+	Player O Move: XXO *** *O*
+	Player X Move: XXO X** *O*
+	Player O Move: XXO XO* *O*
+	Player X Move: XXO XOX *O*
+	Player O Move: XXO XOX OO*
+	Player O won!
+------------------------------------------
+Player Moves for board: OXO OXX XOX
+	This board is not in the GameTree.
+------------------------------------------
+Player Moves for board: XXX OOX OOX
+	This board is already finished.
+	Player X won!
+------------------------------------------
+------------------------------------------
+<<<<<<<<<<<<<ATTEMPT AT BONUS>>>>>>>>>>>>>
+-------Inverse LevelOrder Traversal-------
+Order Number	Board Layout	Node Level
+------------------------------------------
+1:		X** *** *O*	0
+2:		XX* *** *O*	1
+3:		XXO *** *O*	2
+4:		XXO X** *O*	3
+5:		XXO XO* *O*	4
+6:		XXO XOX *O*	5
+7:		XXO XOX OO*	6
+8:		XXO XOX *OO	6
+9:		XXO XOX XOO	7
+------------------------------------------
+------------------------------------------
+------------------------------------------
+-------------------END--------------------
+
+
